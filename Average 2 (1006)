@@ -1,0 +1,34 @@
+/*
+Read three values (variables A, B and C), which are the three student's grades. Then, calculate the average, considering that grade A has weight 2, grade B has weight 3 and the grade C has weight 5. Consider that each grade can go from 0 to 10.0, always with one decimal place.
+
+Input
+The input file contains 3 values of floating points (double) with one digit after the decimal point.
+
+Output
+Print the message "MEDIA"(average in Portuguese) and the student's average according to the following example, with a blank space before and after the equal signal.
+*/
+
+// library declaration statement
+#include <stdio.h>
+
+#define WEIGHT1 2.0f// weight of grade one
+#define WEIGHT2 3.0f // weight of grade two 
+#define WEIGHT3 5.0f // weight of grade three
+
+int main(void) // main function
+{
+
+    double grade1 , grade2, grade3; // two float type input grades declaration statements
+    double average; // float type output average declaration statement
+
+
+    scanf("%lf\n%lf\n%lf", &grade1, &grade2, &grade3 );
+
+    average = ( ( grade1 * WEIGHT1 ) + ( WEIGHT2 * grade2 ) + ( WEIGHT3 * grade3 ) ) / ( WEIGHT1 + WEIGHT2 + WEIGHT3 ) ; // average computing using weighted average
+
+    printf("MEDIA = %.1lf\n", average); // printing function for output average using five decimal cases
+
+
+
+    return 0; // return statement to the main function
+}
