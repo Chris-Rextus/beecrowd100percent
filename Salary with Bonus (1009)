@@ -1,0 +1,34 @@
+/*
+
+Make a program that reads a seller's name, his/her fixed salary and the sale's total made by himself/herself in the month (in money). Considering that this seller receives 15% over all products sold, write the final salary (total) of this seller at the end of the month , with two decimal places.
+
+- Don’t forget to print the line's end after the result, otherwise you will receive “Presentation Error”.
+
+- Don’t forget the blank spaces.
+
+Input
+The input file contains a text (employee's first name), and two double precision values, that are the seller's salary and the total value sold by him/her.
+
+*/
+
+// libraries
+#include <stdio.h>
+
+// MACRO defining
+#define REVENUE_TAX 0.15f 
+
+int main(void)  // main function, the only one
+{
+
+  char names[15]; // vector for storing worker's name (aparently it will not be needed for anything though, just storing)
+  double fixed_salary, total_sales; // double precision float type variable declaration
+
+  scanf("%s", &names);  // atribution scanning for worker's name
+  scanf("%lf %lf", &fixed_salary, &total_sales);  // numerical atribution of variables
+
+  double total_revenue = fixed_salary + ( total_sales * (double)REVENUE_TAX );  // computing of the output revenue for each worker
+
+  printf("TOTAL = R$ %.2lf\n", total_revenue);  // printing function for formatted output
+  
+  return 0;
+}
