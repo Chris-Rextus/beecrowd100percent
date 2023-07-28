@@ -1,0 +1,45 @@
+/*
+
+Make a program that reads a seller's name, his/her fixed salary and the sale's total made by himself/herself in the month (in money). Considering that this seller receives 15% over all products sold, write the final salary (total) of this seller at the end of the month , with two decimal places.
+
+- Don’t forget to print the line's end after the result, otherwise you will receive “Presentation Error”.
+
+- Don’t forget the blank spaces.
+
+Input
+The input file contains a text (employee's first name), and two double precision values, that are the seller's salary and the total value sold by him/her.
+
+*/
+
+// libraries
+#include <stdio.h>
+
+// MACRO defining
+#define NUMBER_OF_PRODUCTS 2
+
+int main(void)  // main function, the only one
+{
+
+  double code_for_product[NUMBER_OF_PRODUCTS]; // one-dimensional array for storing each product code, using the MACRO that defines the total number of products
+  double number_of_units[NUMBER_OF_PRODUCTS]; // one-dimensional array for storing each number of units of a certain product, using the MACRO that defines the total number of products
+  double price_of_product[NUMBER_OF_PRODUCTS]; // one-dimensional array for storing each price for each product, using the same MACRO for the total amount of products
+
+  for (int i = 0; i < NUMBER_OF_PRODUCTS; i++) // for loop that iterates each product code, number of units and individual price, storing at the same index for each array
+  {
+    scanf("%lf %lf %lf", &code_for_product[i], &number_of_units[i], &price_of_product[i]);
+  }
+
+  double total_for_product[NUMBER_OF_PRODUCTS]; // total balance for each product bought, the arithmetic product between number of units and individual price
+  double final_balance = 0; // the final balance asked for output
+
+  for (int i = 0; i < NUMBER_OF_PRODUCTS; i++)  // for loop that iterates each individual product total balance and then add it up to the final balance
+  {
+    total_for_product[i] = number_of_units[i] * price_of_product[i];
+    final_balance += total_for_product[i];
+  }
+  
+  printf("VALOR A PAGAR: R$ %.2lf\n", final_balance); // printf function to display the final result output, as asked
+
+  
+  return 0;
+}
