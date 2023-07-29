@@ -1,0 +1,30 @@
+/*
+
+Make a program that calculates and shows the volume of a sphere being provided the value of its radius (R) . The formula to calculate the volume is: (4/3) * pi * R3. Consider (assign) for pi the value 3.14159.
+
+Tip: Use (4/3.0) or (4.0/3) in your formula, because some languages (including C++) assume that the division's result between two integers is another integer. :)
+
+Input
+The input contains a value of floating point (double precision).
+
+*/
+
+// library declaring
+#include <stdio.h>
+#include <math.h>
+
+// MACRO defining of PI
+#define PI 3.14159f
+
+int main(void) // solely main function, the only needed
+{
+
+  double radius = 0; //  instantiation and initialization of radius
+  scanf("%lf", &radius); // input of the radius value
+
+  double volume = PI * pow(radius, 3) * 4.0/3.0; // computing of output volume of sphere
+
+  printf("VOLUME = %.3lf\n", volume); // print function for displaying outputted volume
+
+  return 0;
+}
