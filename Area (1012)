@@ -1,0 +1,88 @@
+/* 
+
+Make a program that reads three floating point values: A, B and C. Then, calculate and show:
+a) the area of the rectangled triangle that has base A and height C.
+b) the area of the radius's circle C. (pi = 3.14159)
+c) the area of the trapezium which has A and B by base, and C by height.
+d) the area of ​​the square that has side B.
+e) the area of the rectangle that has sides A and B.
+
+Input
+The input file contains three double values with one digit after the decimal point. 
+
+*/
+
+// preprocessor directives 
+
+    // used libraries
+    #include <stdio.h>
+    #include <stdlib.h>
+
+    // used MACROS
+    #define PI 3.14159l
+
+// function prototype declaring
+void rectangled_triangle_area_calculator(double, double, double *);
+void circle_area_calculator(double, double *);
+void trapezium_area_calculator(double, double, double, double *);
+void square_area_calculator(double, double *);
+void rectangle_area_calculator(double, double, double *);
+
+// main function defining
+int main(void)
+{
+    double A, B, C; // three inserted values
+    scanf("%lf %lf %lf", &A, &B, &C); // scanning the inputed double values
+
+    // all variables for output
+    double rectangled_triangle_area;
+    double circle_area;
+    double trapezium_area;
+    double square_area;
+    double rectangle_area;
+
+    // all function callings for computing each variable
+    rectangled_triangle_area_calculator(A, C, &rectangled_triangle_area);
+    circle_area_calculator(C, &circle_area);
+    trapezium_area_calculator(A, B, C, &trapezium_area);
+    square_area_calculator(B, &square_area);
+    rectangle_area_calculator(A, B, &rectangle_area);
+
+    // printing the outputted results
+    printf("TRIANGULO: %.3lf\nCIRCULO: %.3lf\nTRAPEZIO: %.3lf\nQUADRADO: %.3lf\nRETANGULO: %.3lf\n", rectangled_triangle_area, circle_area, trapezium_area, square_area, rectangle_area);
+
+    // exit function from stdlib.h
+    exit(EXIT_SUCCESS);
+}
+
+// secondary functions defining
+
+// calculator of rectangled triangle area going from base A and height C, the third parameter is the pointer to which the output will be attached
+void rectangled_triangle_area_calculator(double A, double C, double *rectangle_triangle_pointer)
+{
+    *rectangle_triangle_pointer = (A * C) / 2 ;
+}
+
+// function for the calculator of circle's area from radius C;  The second parameter is a pointer to which the output will br attached
+void circle_area_calculator(double C, double *circle_pointer)
+{
+    *circle_pointer = PI * (C * C) ;
+};
+
+// function for trapezium area computing, the first three parameters are two bases and height, the fourth is the pointer for the output changings
+void trapezium_area_calculator(double A, double B, double C, double *trapezium_pointer)
+{
+    *trapezium_pointer = (A + B) * C / 2 ;
+}
+
+// function for computing square area from it's side B and a pointer for the output
+void square_area_calculator(double B, double *square_pointer)
+{
+    *square_pointer = B * B ;
+}
+
+// computer of a rectangle area from it's two sides A and B, also a pointer for it's output
+void rectangle_area_calculator(double A, double B, double *rectangle_pointer)
+{
+    *rectangle_pointer = A * B ;
+}
