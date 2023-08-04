@@ -1,0 +1,38 @@
+// preprocessing directives
+
+    // used libraries
+    #include <stdio.h>
+    #include <stdlib.h>
+
+    // used MACROS
+    /*none*/
+
+// type definitions
+/*none*/
+
+// globals used
+/*none*/
+
+// secondary function prototypes declaring
+double fuel_consumption_rate(int, double);
+
+// main function defining
+int main(void)
+{
+    int distance;
+    double consumpted_fuel; // two input variables statement
+
+    scanf("%d %lf", &distance, &consumpted_fuel); // scanning of input 
+
+    printf("%.3lf km/l\n", fuel_consumption_rate(distance, consumpted_fuel));   // printf function for the output, using the secondary function's return value
+
+    exit(EXIT_SUCCESS);
+}
+
+// secondary finctions defining
+double fuel_consumption_rate(int X, double Y)
+{
+    double consumption_rate = (double) X / Y ;
+
+    return consumption_rate;
+}
