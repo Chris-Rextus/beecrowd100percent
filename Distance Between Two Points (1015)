@@ -1,0 +1,43 @@
+// preprocessing directives
+
+    // included libraries
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <math.h>
+
+    // defined MACROS
+    /*none*/
+
+// type definitions
+/*none*/
+
+// globals declared
+/*none*/
+
+// secondary functions declarations
+double distance_between(double[], double[]);
+
+// main function definition
+int main(void)
+{
+    double P1[2], P2[2]; // two element array for each point, being first element the x axis and the second the y axis
+
+    scanf("%lf %lf %lf %lf", &P1[0], &P1[1], &P2[0], &P2[1]);   // input for two points, with two arrays
+
+    printf("%.4lf\n", distance_between(P1, P2));  // call of distance function, which return value is used inside printf
+
+    exit(EXIT_SUCCESS);
+}
+
+// secondary functions definitions
+
+    // function for computing the distance between two points
+    double distance_between(double p1[], double p2[])
+    {
+        double delthax = p2[0] - p1[0]; // compute the x axis distance between two points
+        double delthay = p2[1] - p1[1]; // compute the y axis distance between two points
+        
+        double distance = sqrt( pow(delthax, 2) + pow(delthay, 2) );    // compute the distance between two points using Pythagoras' Theorem
+
+        return distance;    // return it to the function
+    }
