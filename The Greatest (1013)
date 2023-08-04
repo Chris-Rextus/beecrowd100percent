@@ -1,0 +1,47 @@
+// preprocessing directives
+
+    // used libraries
+    #include <stdio.h>
+    #include <stdlib.h>
+
+    // used MACROS
+    /*none*/
+
+// type definitions 
+/*none*/
+
+// used globals
+/*none*/
+
+// function prototype declarations
+int the_greatest_between(int, int, int);
+
+// main function defining
+
+int main(void)
+{
+    int a, b, c; // three input integers declaration
+
+    scanf(" %d %d %d", &a, &b, &c); // input for those three
+
+    printf("%d eh o maior\n", the_greatest_between(a, b, c));
+
+    exit(EXIT_SUCCESS);
+}
+
+// secondary functions defining
+
+int the_greatest_between(int a, int b, int c)
+{
+    int greatest ;
+
+    if (a >= b)       
+    greatest = a;
+    else
+    greatest = b;
+    
+    if (c >= greatest)
+    greatest = c;
+
+    return greatest;    
+}
