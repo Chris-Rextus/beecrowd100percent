@@ -1,0 +1,41 @@
+// preprocessing directives
+
+    // included libraries
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <stdbool.h>
+
+    // defined MACRO
+    #define SPEEDX 60.0l
+    #define SPEEDY 90.0l
+
+// type definitions
+/*none*/
+
+// tagged structures
+/*none*/
+
+// globals declared
+/*none*/
+
+//  secondary functions declarations
+double relativeXfromYdistance(double);
+
+// main function definition
+int main(int argc, char *argv[])
+{
+    double distance_input;
+    scanf("%lf", &distance_input);
+    double output_distance = 60.0l * relativeXfromYdistance(distance_input);
+    printf("%d minutos\n", (int)output_distance);
+    exit(EXIT_SUCCESS);
+}
+
+// secondary functions definitions
+
+double relativeXfromYdistance(double distance)
+{
+    double relative_speed = SPEEDY - SPEEDX;
+    double time = distance / relative_speed;
+    return time;
+}
