@@ -1,0 +1,78 @@
+// initial preprocessing directives
+
+    // included files
+    #include <stdio.h>
+    #include <stdlib.h>
+
+    // defined MACRO
+    #define DISPLAY_ERROR(s) printf("\n%s\n", (s))  // printf function for displaying error messages
+    #define PRINT_INT(i) printf("%d", i)    // printf for a simple integer
+
+// type definitions
+/*none*/
+
+// tagged structures
+/*none*/
+
+// secondary function declarations
+void banknote_printer(int);
+
+// main function definition
+int main(int argc, char *argv[])
+{
+    if (argc > 1)   // program integrity test
+    {
+        DISPLAY_ERROR("COMPILATION ERROR");
+        exit(EXIT_FAILURE);
+    }
+
+    int unsigned money; // declaration and definition of a suitable variable for receiving the input momey
+
+    scanf("%d", &money);    // input of the money to be decomposed
+
+    banknote_printer(money);    // call of the function, suppliying the money variable as argument
+
+    exit(EXIT_SUCCESS);
+}
+
+// secondary function definitions
+
+/*
+    Function that accepts and integer, the ammount of money, and prints the minimum number of banknotes to decompose the value
+*/
+void banknote_printer(int m)
+{
+    register unsigned int banknotes = 0;
+
+    PRINT_INT(m);
+
+    for (; m >= 100 ; banknotes++, m -= 100);
+    printf("\n%d nota(s) de R$ 100,00", banknotes);
+    banknotes = 0;
+
+    for (; m >= 50 ; banknotes++, m -= 50);
+    printf("\n%d nota(s) de R$ 50,00", banknotes);
+    banknotes = 0;
+
+    for (; m >= 20 ; banknotes++, m -= 20);
+    printf("\n%d nota(s) de R$ 20,00", banknotes);
+    banknotes = 0;
+
+    for (; m >= 10 ; banknotes++, m -= 10);
+    printf("\n%d nota(s) de R$ 10,00", banknotes);
+    banknotes = 0;
+
+    for (; m >= 5 ; banknotes++, m -= 5);
+    printf("\n%d nota(s) de R$ 5,00", banknotes);
+    banknotes = 0;
+
+    for (; m >= 2 ; banknotes++, m -= 2);
+    printf("\n%d nota(s) de R$ 2,00", banknotes);
+    banknotes = 0;
+
+    for (; m >= 1 ; banknotes++, m -= 1);
+    printf("\n%d nota(s) de R$ 1,00", banknotes);
+    banknotes = 0;
+
+    printf("\n");
+}
