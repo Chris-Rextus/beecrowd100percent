@@ -1,0 +1,40 @@
+// initial preprocessing directives
+
+    // included files
+    #include <stdio.h>
+    #include <stdlib.h>
+
+    // defined MACRO
+    #define CAR_QUILOMETERS_PER_LITER 12  // simple macro to define the car property of fuel consumption
+    #define FUEL_SPENT(t,a) (((a)*(t)) / CAR_QUILOMETERS_PER_LITER)  // parameterized macro for fuel spent calculation
+    #define DISPLAY_ERROR(s) printf("\n%s\n", (s))  // printf function for displaying error messages
+
+// type definitions
+/*none*/
+
+// tagged structures
+/*none*/
+
+// secondary function declarations
+/*none*/
+
+// main function definition
+int main(int argc, char *argv[])
+{
+    if (argc > 1)   // program integrity test
+    {
+        DISPLAY_ERROR("COMPILATION ERROR");
+        exit(EXIT_FAILURE);
+    }
+
+    auto double time, average_speed;    // declaration and definition of two double variables with auto storage class 
+
+    scanf("%lf\n%lf", &time, &average_speed);   // reading of input
+
+    printf("%6.3lf\n", (double)FUEL_SPENT(time, average_speed));    // printf function for displaying the desired output, using the
+                                                                    // parameterized macro as double value to be printed after casting
+    exit(EXIT_SUCCESS);
+}
+
+// secondary function definitions
+/*none*/
