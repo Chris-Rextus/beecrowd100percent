@@ -46,22 +46,22 @@ int main(int argc, char *argv[])
 /*
     Function that receives an int input of time in seconds and display it in h:m:s
 */
-void time_printer(int *time_in_seconds)
+void time_printer(int *time_in_days)
 {
     register int time_units = 0;
 
-    for(;*time_in_seconds >= YEAR; time_units++, *time_in_seconds -= YEAR );
+    for(;*time_in_days >= YEAR; time_units++, *time_in_seconds -= YEAR );
     PRINT_INT(time_units);
     PRINT_STRING(" ano(s)");
     NEXT_LINE;
     time_units = 0;
 
-    for(;*time_in_seconds >= MONTH; time_units++, *time_in_seconds -= MONTH );
+    for(;*time_in_days >= MONTH; time_units++, *time_in_seconds -= MONTH );
     PRINT_INT(time_units);
     PRINT_STRING(" mes(es)");
     NEXT_LINE;
 
-    PRINT_INT(*time_in_seconds);
+    PRINT_INT(*time_in_days);
     PRINT_STRING(" dia(s)");
     NEXT_LINE;
 }
