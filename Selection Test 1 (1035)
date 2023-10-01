@@ -1,0 +1,42 @@
+// initial preprocessing directives
+
+    // included files
+    #include <stdio.h>
+    #include <stdlib.h>
+
+    // defined MACRO
+    #define CONDITION1(x,y) ((x) > (y)) // macro for a value being greater than another
+    #define CONDITION2(x,y,z,w) (((x) + (y)) > ((w) + (z))) // macro for a sum being greater than another
+    #define IS_EVEN(x) (((x) % 2) == 0) // macro for a value being even
+    #define VALUES_VERIFIER(A,B,C,D) if (CONDITION1(B,C) && CONDITION1(D,A) && CONDITION2(C,D,A,B) && IS_EVEN(A) &&  \ 
+                                     (C >= 0) && (D >= 0)) printf("Valores aceitos\n"); else printf("Valores nao aceitos\n");   // macro for the test
+    
+// type definitions
+/*none*/
+
+// tagged structures
+/*none*/
+
+// secondary function declarations
+/*none*/
+
+// main function definition
+int main(int argc, char *argv[])
+{
+    if (argc > 1)   // program integrity test
+    {
+        printf("\nCOMPILATION ERROR: PROGRAM TERMINATED\n");
+        exit(EXIT_FAILURE);
+    }
+    
+    auto int A, B, C, D;    // automatic storage duration variables for input values
+
+    scanf("%d %d %d %d", &A, &B, &C, &D);   // input for integer values
+
+    VALUES_VERIFIER(A,B,C,D)    // call of required macro
+
+    exit(EXIT_SUCCESS);
+}
+
+// secondary function definitions
+/*none*/
