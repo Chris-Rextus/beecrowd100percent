@@ -1,0 +1,62 @@
+// initial preprocessing directives
+
+    // included files
+    #include <stdio.h>
+    #include <stdlib.h>
+
+    // defined MACRO
+    #define HOUR 3600
+    #define MINUTE 60
+    #define DISPLAY_ERROR(s) printf("\n%s\n", (s))  // printf function for displaying error messages
+    #define PRINT_INT(i) printf("%d", i)    // printf for a simple integer
+
+// type definitions
+/*none*/
+
+// tagged structures
+/*none*/
+
+// secondary function declarations
+void time_printer(int*);
+
+// main function definition
+int main(int argc, char *argv[])
+{
+    if (argc > 1)   // program integrity test
+    {
+        DISPLAY_ERROR("COMPILATION ERROR");
+        exit(EXIT_FAILURE);
+    }
+
+    auto int *input_time = (int*)malloc(sizeof(int));   // input variable declaration and definition
+
+    scanf("%d", input_time);   // data input reading
+
+    time_printer(input_time);   // function call
+
+    free(input_time);   // used variable memory deallocation
+
+    exit(EXIT_SUCCESS);
+}
+
+// secondary function definitions
+
+/*
+    Function that receives an int input of time in seconds and display it in h:m:s
+*/
+void time_printer(int *time_in_seconds)
+{
+    register int time_units = 0;
+
+    for(;*time_in_seconds >= HOUR; time_units++, *time_in_seconds -= HOUR );
+    PRINT_INT(time_units);
+    printf(":");
+    time_units = 0;
+
+    for(;*time_in_seconds >= MINUTE; time_units++, *time_in_seconds -= MINUTE );
+    PRINT_INT(time_units);
+    printf(":");
+
+    PRINT_INT(*time_in_seconds);
+    printf("\n");
+}
