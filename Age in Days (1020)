@@ -50,13 +50,13 @@ void time_printer(int *time_in_days)
 {
     register int time_units = 0;
 
-    for(;*time_in_days >= YEAR; time_units++, *time_in_seconds -= YEAR );
+    for(;*time_in_days >= YEAR; time_units++, *time_in_days -= YEAR );
     PRINT_INT(time_units);
     PRINT_STRING(" ano(s)");
     NEXT_LINE;
     time_units = 0;
 
-    for(;*time_in_days >= MONTH; time_units++, *time_in_seconds -= MONTH );
+    for(;*time_in_days >= MONTH; time_units++, *time_in_days -= MONTH );
     PRINT_INT(time_units);
     PRINT_STRING(" mes(es)");
     NEXT_LINE;
