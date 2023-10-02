@@ -1,0 +1,62 @@
+// initial preprocessing directives
+
+    // included files
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <math.h>
+
+    // defined MACRO
+    #define BHASKARA_DISCRIMINANT(a,b,c) (((b)*(b)) - (4 * (a) * (c)))  // macro for discriminant calculus
+
+// type definitions
+/*none*/
+
+// tagged structures
+/*none*/
+
+// secondary function declarations
+void root_printer(double*, double*, double*);   // function declaration
+
+// main function definition
+int main(int argc, char *argv[])
+{
+    if (argc > 1)   // program integrity test
+    {
+        printf("COMPILATION ERROR: PROGRAM TERMINATED");
+        exit(EXIT_FAILURE);
+    }
+
+    auto double *a = (double*)malloc(sizeof(double));   // variable declaration and definition
+    auto double *b = (double*)malloc(sizeof(double));
+    auto double *c = (double*)malloc(sizeof(double));
+
+    scanf("%lf %lf %lf", a, b, c);  // data input reading
+
+    root_printer(a, b, c);  // call of necessary function
+
+    free(a);    // memory deallocation for used variables
+    free(b);
+    free(c);
+
+    exit(EXIT_SUCCESS);
+}
+
+// secondary function definitions
+
+/*
+    Function that performs bhaskara roots calculation and analysis. At the end, prints out the results.
+*/
+void root_printer(double *a, double *b, double *c)
+{
+    auto double discrminant = BHASKARA_DISCRIMINANT(*a, *b, *c);
+
+    if (!(*a) || discrminant < 0)
+    {
+        printf("Impossivel calcular\n");
+        return;
+    }
+
+    auto double root1 = ((-(*b) + sqrt(discrminant)) / (2 * (*a))), root2 = ((-(*b) - sqrt(discrminant)) / (2 * (*a)));
+
+    printf("R1 = %.5lf\nR2 = %.5lf\n", root1, root2);
+}
